@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 
 <head>
@@ -195,10 +195,6 @@
                 <a href="https://notebooklm.google.com/" target="_blank" class="quick-link">
                     <img src="../image/logo-notebooklm.png" alt="NotebookLM" style="height: 20px; width: auto;">
                     NotebookLM
-                </a>
-                <a href="https://grok.com/imagine" target="_blank" class="quick-link">
-                    <img src="../image/logo-grok.png" alt="Grok" style="height: 20px; width: auto;">
-                    Grok (讓圖動起來)
                 </a>
                 <a href="https://aistudio.google.com/live" target="_blank" class="quick-link">
                     <img src="../image/logo-aistudio.png" alt="AI Studio" style="height: 20px; width: auto;">
@@ -458,83 +454,6 @@
                 </div>
             </div>
 
-            <!-- Section C: Grok Animation -->
-            <div class="card mb-6">
-                <div class="card-header card-header-emerald">
-                    <h3>🎬 Section C：靜態圖轉動畫 (Grok)</h3>
-                </div>
-                <div class="card-body">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Steps -->
-                        <div>
-                            <h4 class="font-bold mb-4">操作步驟</h4>
-                            <div style="display: flex; flex-direction: column; gap: 1rem;">
-                                <div style="display: flex; gap: 1rem; align-items: flex-start;">
-                                    <span
-                                        style="background: var(--color-stone-800); color: white; width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</span>
-                                    <div>
-                                        <div class="font-bold">開啟 Grok</div>
-                                        <p class="text-sm text-stone-500">前往 grok.com</p>
-                                    </div>
-                                </div>
-                                <div style="display: flex; gap: 1rem; align-items: flex-start;">
-                                    <span
-                                        style="background: var(--color-stone-800); color: white; width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</span>
-                                    <div>
-                                        <div class="font-bold">上傳你的手繪地圖</div>
-                                        <p class="text-sm text-stone-500">將 Gemini 生成的圖片上傳</p>
-                                    </div>
-                                </div>
-                                <div style="display: flex; gap: 1rem; align-items: flex-start;">
-                                    <span
-                                        style="background: var(--color-stone-800); color: white; width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</span>
-                                    <div>
-                                        <div class="font-bold">選擇動畫效果</div>
-                                        <p class="text-sm text-stone-500">使用下方的動畫提示詞</p>
-                                    </div>
-                                </div>
-                                <div style="display: flex; gap: 1rem; align-items: flex-start;">
-                                    <span
-                                        style="background: var(--color-success); color: white; width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">4</span>
-                                    <div>
-                                        <div class="font-bold">下載並分享</div>
-                                        <p class="text-sm text-stone-500">下載影片發到社群</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="https://grok.com/imagine" target="_blank" class="btn btn-secondary btn-full mt-4">
-                                🚀 開啟 Grok
-                            </a>
-                        </div>
-
-                        <!-- Animation Effects -->
-                        <div>
-                            <h4 class="font-bold mb-4">選擇動畫效果</h4>
-                            <div class="grid grid-cols-2 gap-2">
-                                <button onclick="selectAnimation('sakura')" class="btn btn-outline" id="anim-sakura">🌸
-                                    櫻花飄落</button>
-                                <button onclick="selectAnimation('clouds')" class="btn btn-outline" id="anim-clouds">☁️
-                                    雲朵移動</button>
-                                <button onclick="selectAnimation('train')" class="btn btn-outline" id="anim-train">🚃
-                                    電車駛過</button>
-                                <button onclick="selectAnimation('walking')" class="btn btn-outline"
-                                    id="anim-walking">🚶 人物走動</button>
-                                <button onclick="selectAnimation('lights')" class="btn btn-outline" id="anim-lights">✨
-                                    燈光閃爍</button>
-                            </div>
-
-                            <div class="prompt-box mt-4">
-                                <span class="prompt-label">動畫提示詞</span>
-                                <textarea id="animation-prompt" class="form-textarea"
-                                    style="min-height: 100px; font-family: monospace;" readonly></textarea>
-                            </div>
-                            <button onclick="copyToClipboard('animation-prompt')" class="btn btn-outline btn-full mt-2">
-                                📋 複製
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <!-- Section D: Social Post Generator -->
             <div class="card mb-6">
@@ -608,7 +527,6 @@
     <script src="../js/common.js"></script>
     <script>
         let selectedStyle = 'watercolor';
-        let selectedAnimation = '';
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
@@ -996,33 +914,6 @@
             document.getElementById('social-prompt').value = prompt;
         }
 
-        function selectAnimation(effect) {
-            const effects = {
-                sakura: { name: '櫻花飄落', prompt: '櫻花花瓣緩緩從上方飄落，隨風輕輕擺動。' },
-                clouds: { name: '雲朵移動', prompt: '天空中的雲朵緩緩向右飄移。' },
-                train: { name: '電車駛過', prompt: '一輛電車從畫面左側駛向右側，帶有動態效果。' },
-                walking: { name: '人物走動', prompt: '地圖上的小人物沿著路線行走。' },
-                lights: { name: '燈光閃爍', prompt: '夜景中的霓虹燈有微微閃爍的動態效果。' }
-            };
-
-            // Update button styles
-            document.querySelectorAll('[id^="anim-"]').forEach(btn => {
-                btn.classList.remove('btn-primary');
-                btn.classList.add('btn-outline');
-            });
-            document.getElementById('anim-' + effect).classList.remove('btn-outline');
-            document.getElementById('anim-' + effect).classList.add('btn-primary');
-
-            const e = effects[effect];
-            const prompt = `請將這張靜態圖片轉換為動畫。
-
-動畫效果：${e.prompt}
-
-保持原圖的藝術風格不變。`;
-
-            document.getElementById('animation-prompt').value = prompt;
-            selectedAnimation = effect;
-        }
 
         // ===== 倒數計時功能 (跨裝置同步) =====
         let countdownInterval = null;
