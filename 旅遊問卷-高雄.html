@@ -579,58 +579,7 @@
             <span>👥 您來自哪個團隊 (大C)？</span>
             <span class="required">*</span>
           </div>
-          <div class="radio-group grid-layout">
-            <div class="radio-option">
-              <input type="radio" name="entry.869461559" value="秋霞大C" id="team1" required>
-              <label for="team1">秋霞大C</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" name="entry.869461559" value="鴻林大C" id="team2">
-              <label for="team2">鴻林大C</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" name="entry.869461559" value="碩鴻大C" id="team3">
-              <label for="team3">碩鴻大C</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" name="entry.869461559" value="佩芬大C" id="team4">
-              <label for="team4">佩芬大C</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" name="entry.869461559" value="香綺大C" id="team5">
-              <label for="team5">香綺大C</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" name="entry.869461559" value="子林大C" id="team6">
-              <label for="team6">子林大C</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" name="entry.869461559" value="婷芝大C" id="team7">
-              <label for="team7">婷芝大C</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" name="entry.869461559" value="桃園韋宏大C" id="team8">
-              <label for="team8">桃園韋宏大C</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" name="entry.869461559" value="新竹大C" id="team9">
-              <label for="team9">新竹大C</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" name="entry.869461559" value="玟蘭大C" id="team10">
-              <label for="team10">玟蘭大C</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" name="entry.869461559" value="映羽大C" id="team11">
-              <label for="team11">映羽大C</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" name="entry.869461559" value="__other_option__" id="teamOther">
-              <label for="teamOther">其他：</label>
-              <input type="text" id="teamOtherInput" class="text-input" style="margin-top: 10px; display: none;"
-                placeholder="請輸入您的團隊名稱">
-            </div>
-          </div>
+          <input type="text" name="entry.869461559" class="text-input" placeholder="請輸入您的團隊名稱" required>
         </div>
 
         <div class="section-divider">🌸</div>
@@ -663,23 +612,6 @@
           </div>
         </div>
 
-        <div class="question-group">
-          <div class="question-label">
-            <span>🔥【熱血招募】您是否有意願擔任本次活動的「小組助教」？</span>
-            <span class="required">*</span>
-          </div>
-          <div class="question-hint">助教需提早 60 分鐘到場熟悉流程，將獲得講師課前培訓！</div>
-          <div class="radio-group">
-            <div class="radio-option">
-              <input type="radio" name="entry.551668877" value="YES! 我願意：我有熱忱協助同桌夥伴，且對 AI 有基本概念。" id="ta1" required>
-              <label for="ta1">YES! 我願意：我有熱忱協助同桌夥伴，且對 AI 有基本概念。</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" name="entry.551668877" value="NO, 先不要：我這次想先專心當學員學習。" id="ta2">
-              <label for="ta2">NO, 先不要：我這次想先專心當學員學習。</label>
-            </div>
-          </div>
-        </div>
 
         <div class="section-divider">🗻</div>
 
@@ -696,10 +628,6 @@
             <div class="checkbox-option">
               <input type="checkbox" name="entry.118266493" value="我會將筆電先充飽電再出門" id="check2">
               <label for="check2">我會將筆電先充飽電再出門</label>
-            </div>
-            <div class="checkbox-option">
-              <input type="checkbox" name="entry.118266493" value="我知悉現場每人僅分配 1 個插座孔，如有額外需求我會自備延長線" id="check3">
-              <label for="check3">我知悉現場每人僅分配 1 個插座孔，如有額外需求我會自備延長線</label>
             </div>
             <div class="checkbox-option">
               <input type="checkbox" name="entry.118266493" value="我已確認我的 Google (Gmail) 帳號密碼可順利登入" id="check4">
@@ -730,17 +658,16 @@
           我們已收到您的課前調查資料
         </p>
 
-        <div class="thank-you-details">
-          <h4>📋 活動提醒</h4>
-          <ul>
-            <li>💻 記得攜帶筆記型電腦</li>
-            <li>🔋 請事先將設備充飽電</li>
-            <li>🔌 如需多個插座請自備延長線</li>
-            <li>🔐 確認 Google 帳號可正常登入</li>
-          </ul>
+        <div class="thank-you-details" style="padding: 30px; border: 2px solid #c41e3a; background: #fff;">
+          <h4 style="font-size: 1.2rem; margin-bottom: 20px;">� 課前重要通知</h4>
+          <p style="margin-bottom: 20px; font-weight: 500;">請點擊以下連結加入工作坊群組：</p>
+          <a href="https://line.me/ti/g/2Q582we7vk" target="_blank"
+            style="display: inline-block; background: #06c755; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(6, 199, 85, 0.3);">
+            點我加入：旅遊規劃師群組 ➔
+          </a>
         </div>
 
-        <p style="color: #888; font-size: 0.9rem;">
+        <p style="color: #888; font-size: 0.9rem; margin-top: 30px;">
           🌸 期待在工作坊與您相見！🌸
         </p>
       </div>
@@ -770,24 +697,6 @@
     const checklistError = document.getElementById('checklistError');
     const formContent = document.getElementById('formContent');
     const thankYouPage = document.getElementById('thankYouPage');
-    const teamOtherRadio = document.getElementById('teamOther');
-    const teamOtherInput = document.getElementById('teamOtherInput');
-    const teamRadios = document.querySelectorAll('input[name="entry.869461559"]');
-
-    function toggleTeamOtherInput() {
-      if (teamOtherRadio.checked) {
-        teamOtherInput.style.display = 'block';
-        teamOtherInput.setAttribute('required', 'true');
-      } else {
-        teamOtherInput.style.display = 'none';
-        teamOtherInput.removeAttribute('required');
-        teamOtherInput.value = '';
-      }
-    }
-
-    teamRadios.forEach(radio => {
-      radio.addEventListener('change', toggleTeamOtherInput);
-    });
 
     function allCheckboxesChecked() {
       return Array.from(checkboxes).every(cb => cb.checked);
@@ -812,27 +721,27 @@
 
       const formData = new FormData(form);
 
-      // Add sentinels for Google Form compatibility
-      formData.append('entry.869461559_sentinel', '');
-      formData.append('entry.1565805686_sentinel', '');
-      formData.append('entry.551668877_sentinel', '');
-      formData.append('entry.118266493_sentinel', '');
+      // === Google Apps Script Web App 網址 ===
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbyK4NcMP2rL5wtHhTSJf1qD0w2hmDfgkApDDlYwUiqwuILM6-BkkfH6b7AFuh8KVxMkVw/exec';
 
-      // Handle the "Other" option for the team name
-      if (teamOtherRadio.checked) {
-        formData.set('entry.869461559', '__other_option__');
-        formData.set('entry.869461559.other_option_response', teamOtherInput.value);
-      }
+      // 整理要傳送的 JSON 資料
+      const data = {
+        name: formData.get('entry.2072652772'),
+        team: formData.get('entry.869461559'),
+        ai_exp: formData.get('entry.1565805686')
+      };
 
-      fetch('https://docs.google.com/forms/d/e/1FAIpQLSe0n22xNeCaO3hFpqHkiwoUANxEn5uvHbeY8an-qBr8PA8GrQ/formResponse', {
+      fetch(scriptURL, {
         method: 'POST',
-        body: formData,
-        mode: 'no-cors'
+        body: JSON.stringify(data),
+        mode: 'no-cors' // 注意：由於 Apps Script 重導向機制，no-cors 通常較易成功
       }).then(() => {
         formContent.classList.add('hide');
         thankYouPage.classList.add('show');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      }).catch(() => {
+      }).catch((error) => {
+        console.error('Error!', error.message);
+        // 即便報錯，通常資料也已經送達，這裡直接顯示感謝頁面
         formContent.classList.add('hide');
         thankYouPage.classList.add('show');
         window.scrollTo({ top: 0, behavior: 'smooth' });
