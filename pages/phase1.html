@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 
 <head>
@@ -48,6 +48,90 @@
             <!-- Introduction -->
             <div class="alert alert-info mb-6">
                 <strong>🎯 本階段目標：</strong>從模糊的想法變成具體的「主題式」旅遊雛形，擺脫大眾景點，挖掘特色主題，生成第一份旅遊行程初稿。
+            </div>
+
+            <!-- Section 0: AI Avatar Generation (Ice Breaker) -->
+            <div class="card mb-6">
+                <div class="card-header card-header-purple" style="background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%); color: white;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <span style="font-size: 1.75rem;">👤</span>
+                        <div>
+                            <h3 style="margin: 0; color: white;">Section 0：AI 虛擬替身生成</h3>
+                            <p class="text-xs mt-1" style="opacity: 0.9;">工作坊破冰：讓 Gemini 把你變身為 8 種夢幻風格的旅遊分身</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="bg-stone-50 p-4 rounded-xl border border-stone-200">
+                            <h4 class="font-bold text-sm mb-3 flex items-center gap-2">
+                                <span class="bg-purple-100 text-purple-600 w-5 h-5 rounded-full flex items-center justify-center text-xs">1</span>
+                                變身三步驟
+                            </h4>
+                            <ul class="text-xs space-y-3 text-stone-600">
+                                <li class="flex gap-2">
+                                    <span class="text-purple-500">📸</span>
+                                    <span>上傳一張你的清晰正面照片到 <strong>Gemini</strong>。</span>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="text-purple-500">🪄</span>
+                                    <span>選下方一種風格，複製生成的「替身指令」貼給 Gemini。</span>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="text-purple-500">✨</span>
+                                    <span>將生成的分身圖片儲存，等一下可以放進你的旅遊企劃中！</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm mb-3 flex items-center gap-2">
+                                <span class="bg-purple-100 text-purple-600 w-5 h-5 rounded-full flex items-center justify-center text-xs">2</span>
+                                選擇你的夢幻風格
+                            </h4>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div class="style-card selected" onclick="selectAvatarStyle('clay')" id="avatar-clay">
+                                    <span class="emoji">🧸</span>
+                                    <div class="name">3D 黏土萌物</div>
+                                </div>
+                                <div class="style-card" onclick="selectAvatarStyle('pixar')" id="avatar-pixar">
+                                    <span class="emoji">🎬</span>
+                                    <div class="name">皮克斯 3D 風</div>
+                                </div>
+                                <div class="style-card" onclick="selectAvatarStyle('shinkai')" id="avatar-shinkai">
+                                    <span class="emoji">🌅</span>
+                                    <div class="name">新海誠：光影</div>
+                                </div>
+                                <div class="style-card" onclick="selectAvatarStyle('ghibli')" id="avatar-ghibli">
+                                    <span class="emoji">🍃</span>
+                                    <div class="name">宮崎駿：童話</div>
+                                </div>
+                                <div class="style-card" onclick="selectAvatarStyle('manga')" id="avatar-manga">
+                                    <span class="emoji">🖋️</span>
+                                    <div class="name">經典日漫風</div>
+                                </div>
+                                <div class="style-card" onclick="selectAvatarStyle('cyberpunk')" id="avatar-cyberpunk">
+                                    <span class="emoji">🌆</span>
+                                    <div class="name">賽博未來感</div>
+                                </div>
+                                <div class="style-card" onclick="selectAvatarStyle('candy')" id="avatar-candy">
+                                    <span class="emoji">💎</span>
+                                    <div class="name">夢幻玻璃感</div>
+                                </div>
+                                <div class="style-card" onclick="selectAvatarStyle('crochet')" id="avatar-crochet">
+                                    <span class="emoji">🧶</span>
+                                    <div class="name">編織娃娃風</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="prompt-box">
+                        <textarea id="avatar-prompt" class="form-textarea" style="min-height: 150px; font-size: 0.85rem;" readonly></textarea>
+                    </div>
+                    <button onclick="copyToClipboard('avatar-prompt')" class="btn btn-purple btn-full mt-4" style="background: #a855f7; color: white;">
+                        📋 複製替身指令
+                    </button>
+                </div>
             </div>
 
             <!-- Advanced Tips: AI Gem -->
@@ -172,9 +256,29 @@
 
     <script src="../js/common.js"></script>
     <script>
+        // ===== AI 虛擬替身生成邏輯 =====
+        const avatarTemplates = {
+            clay: `請根據這張照片中我的長相、髮型、眼鏡和服裝特徵，將我轉化為一個可愛的「3D 黏土人偶 (Claymorphism Style)」。圓潤造型，細微黏土質感。`,
+            pixar: `請參考這張照片中的我的外型與穿著，為我設計一個「皮克斯 3D 動畫電影風格」的作品主角分身。大眼睛、生動表情、精緻材質。`,
+            shinkai: `請參考這張照片中我的外貌與氣質，將我轉化為「新海誠動畫電影風格」的角色。視覺特徵：標誌性的耀眼光影、湛藍飽滿的天空背景、極致細膩的環境反射，整體色彩清新且充滿透明感。`,
+            ghibli: `請將我照片中的形象轉化為「吉卜力/宮崎駿手繪動畫風格」。視覺特徵：溫暖的賽璐璐手繪質感、柔和的線條、帶有懷舊感的自然色彩，像是在宮崎駿電影中會出現的溫馨角色。`,
+            manga: `請根據我的照片特徵，將我設計成「日系經典黑白漫畫風格」。視覺特徵：強烈的手繪線條感、細緻的網點背景、富有張力的分身動作，像是一部熱血漫畫的主角。`,
+            cyberpunk: `請參考這張照片，將我變身為「賽博龐克 (Cyberpunk) 霓虹未來風」的角色。視覺特徵：高對比的紫青霓虹光影、臉部微弱的科技發光線條、未來主義的裝備與繁華夜城背景。`,
+            candy: `請將我轉化為「夢幻玻璃糖果風 (Candy Glass Style)」。視覺特徵：角色呈現半透明的果凍色澤、帶有剔透的漸層光輝與磨砂玻璃質感，整體視覺非常甜美且夢幻。`,
+            crochet: `請根據照片特徵，為我設計一個「手工編織毛線娃娃 (Amigurumi Crochet)」的分身。視覺特徵：明顯的毛線勾勒紋理、蓬鬆柔軟的棉絨質感、黑色鈕扣眼睛，極具療癒手作感。`
+        };
+
+        function selectAvatarStyle(styleId) {
+            document.querySelectorAll('[id^="avatar-"]').forEach(c => c.classList.remove('selected'));
+            const el = document.getElementById('avatar-' + styleId);
+            if (el) el.classList.add('selected');
+            document.getElementById('avatar-prompt').value = avatarTemplates[styleId];
+        }
+
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             WorkshopState.setCurrentPhase(1);
+            selectAvatarStyle('clay');
         });
     </script>
 </body>

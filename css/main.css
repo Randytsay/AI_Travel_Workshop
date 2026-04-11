@@ -1767,3 +1767,75 @@ main {
     --tw-translate-y: -0.25rem;
     transform: translateY(-0.25rem);
 }
+
+/* --- Style Cards (Interactive Selection) --- */
+.style-card {
+    border: 2px solid var(--color-stone-200);
+    border-radius: var(--radius-lg);
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    position: relative;
+    user-select: none;
+    overflow: visible;
+    padding: 0.75rem;
+    min-height: 80px;
+}
+
+.style-card:hover {
+    border-color: #a855f7;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    z-index: 2;
+}
+
+.style-card.selected {
+    border-color: #a855f7;
+    background-color: #f5f3ff;
+    box-shadow: 0 0 0 1px #a855f7, var(--shadow-md);
+    z-index: 2;
+}
+
+.style-card.selected::after {
+    content: '✓';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #a855f7;
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    border: 2px solid white;
+}
+
+.style-card .emoji {
+    font-size: 1.5rem;
+    transition: transform 0.2s ease;
+}
+
+.style-card:hover .emoji {
+    transform: scale(1.2);
+}
+
+.style-card .name {
+    font-weight: 500;
+    color: var(--color-stone-700);
+    font-size: 0.85rem;
+}
+
+.style-card.selected .name {
+    color: #6b21a8;
+    font-weight: 700;
+}
