@@ -72,9 +72,9 @@ function doPost(e) {
     
     // 3. 逐一寫入每一行
     registrants.forEach((name, index) => {
-      // 如果是第一個人且名字等於夥伴名，介紹人填「本人」
+      // 如果是第一個人且名字等於夥伴名，介紹人填「夥伴」
       // 否則介紹人填「夥伴姓名」
-      const referrer = (index === 0 && name === partnerName) ? "本人" : partnerName;
+      const referrer = (index === 0 && name === partnerName) ? "夥伴" : partnerName;
       sheet.appendRow([timestamp, name, referrer, inputBigC]);
     });
     
